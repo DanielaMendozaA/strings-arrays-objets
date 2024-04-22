@@ -12,8 +12,8 @@ const validateDate = function(date){
 let keyDescription
 let keyName
 const addEvents = function(id,names, date, description){
-    keyName = "Event" + id
-    keyDescription = "Event" + description
+    keyName = "Event " +  id
+    keyDescription = "Description " + id
     const objEvent = {
         id : id,
         [keyName] : names,
@@ -73,8 +73,17 @@ const searchUpdateEvents = function(idUpdate){
 
 }
 
+const deleteEvent = function(idToDelet){
+    let objDelet = arrayEvents.find(obj => obj.id === idToDelet)
+    if(objDelet){
+         arrayEvents = arrayEvents.filter(event => event.id !== idToDelet)
+         alert("You delet the event")
+    }else{
+        alert("Invalid Id")
+    }
+}
 
-const arrayEvents = []
+let arrayEvents = []
 
 let confirmar = true
 do{
@@ -124,6 +133,8 @@ do{
             break
         case 5:
             alert("Delete events")
+            let idDelete = Number(prompt("Insert the id of the event that you want to delete"))
+            deleteEvent(idDelete)
             break
         case 6:
             alert("Thanks for using our events system")
