@@ -15,7 +15,6 @@ const validaWhiteSpaces = function(email){
     return valWhite
 }
 
-
 const validateOrder = function(array){
     let valOrder = true
     if(array.length === 2) {

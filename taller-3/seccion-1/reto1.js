@@ -32,7 +32,7 @@ while(confirm("Do you want to insert an user?")){
         
         if(users.length > 0){
             let j = 0;
-            users.forEach((userDB, idx)=>{
+            users.forEach((userDB)=>{
                 while(Object.keys(userDB).includes(nameConcat)){
                     j++;
                     nameConcat = nameConcat + j;

@@ -1,7 +1,4 @@
-const validateName = function(names){
-    let wordRegex = /^[a-zA-Z]+$/;
-    return wordRegex.test(names)
-}
+import {validateName} from './externalFuncion.js'
 
 const validateDate = function(date){
     let dateRegex = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/(19|20)\d\d$/;
@@ -47,6 +44,7 @@ const searchUpdateEvents = function(idUpdate){
                 while(!validateName(newName)){
                     newName = prompt("Insert a valid name for the event")
                 }
+                newName = newName.toLowerCase()
                 objUpdate[keyName] = newName
                 break
             case 2:
@@ -58,9 +56,10 @@ const searchUpdateEvents = function(idUpdate){
                 break
             case 3:
                 let newDescription = prompt("Insert the new description for the event")
-                while(descriptionEvent === null || descriptionEvent.trim() === ""){
-                    descriptionEvent = prompt("Insert a valid description for the event")
+                while(newDescription === null || newDescription.trim() === ""){
+                    newDescription = prompt("Insert a valid description for the event")
                 }
+                newDescription.toLowerCase().trim()
                 objUpdate[keyDescription] = newDescription
                 break
             default:
@@ -96,10 +95,11 @@ do{
             alert("Add events")
             let id = 0
             while(confirm("Do you want to insert an event?")){
-                let nameEvent = prompt("Insert a name for the event").toLowerCase()
+                let nameEvent = prompt("Insert a name for the event")
                 while(!validateName(nameEvent)){
                     nameEvent = prompt("Insert a valid name for the event")
                 }
+                nameEvent = nameEvent.toLowerCase()
                 let dateEvent = prompt("Insert the date of the event in the format dd/mm/yyyy")
                 while(!validateDate(dateEvent)){
                     dateEvent = prompt("Insert a valid date of the event in the format dd/mm/yyyy")
@@ -108,6 +108,7 @@ do{
                 while(descriptionEvent === null || descriptionEvent.trim() === ""){
                     descriptionEvent = prompt("Insert a valid description for the event")
                 }
+                descriptionEvent = descriptionEvent.toLowerCase().trim()
                 id++
                 addEvents(id,nameEvent,dateEvent,descriptionEvent)
             }
@@ -116,6 +117,7 @@ do{
             alert("Search events")
             while(confirm("Do you want to search an event?")){
                 let nameSearch = prompt("Insert the name of the event you want to search")
+                nameSearch = nameSearch.toLowerCase()
                 searchEvent(nameSearch)
             }
             break

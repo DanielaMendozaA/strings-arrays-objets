@@ -134,6 +134,7 @@ Número de Aprobados (calificación mayor o igual a 70)
 Número de Reprobados (calificación menor a 70)
 Lista de Calificaciones Ordenadas de Mayor a Menor
 Muestra las estadísticas de calificaciones al usuario.
+
 Reto 3: Sistema de Gestión de Inventario
 
 Desarrollar un sistema en JavaScript para gestionar un inventario de productos. Cada producto estará representado como un objeto con varias propiedades, y todos los productos se almacenarán en una colección (objeto o array).
